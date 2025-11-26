@@ -1,6 +1,5 @@
 "use client";
 
-import { useChat, UIMessage } from "@ai-sdk/react";
 import { useState } from "react";
 import { RetroWindow } from "@/components/ui/RetroWindow";
 import { NeonButton } from "@/components/ui/NeonButton";
@@ -9,23 +8,87 @@ import { CopyButton } from "@/components/ui/CopyButton";
 import { StyleSelector } from "@/components/features/StyleSelector";
 import type { ConversationStyle } from "@/lib/prompts";
 
+interface Message {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+}
+
 export default function RizzGenerator() {
   const [context, setContext] = useState("");
   const [style, setStyle] = useState<ConversationStyle>("smooth");
   const [input, setInput] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const { messages, sendMessage, status } = useChat();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
 
-  const isLoading = status === "submitted" || status === "streaming";
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      role: "user",
+      content: input,
+    };
 
-  const handleSubmit = async (e?: React.FormEvent) => {
-    e?.preventDefault();
-    if (!input.trim()) return;
-
-    await sendMessage({ text: input });
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
-  };
+    setIsLoading(true);
 
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [...messages, userMessage].map((m) => ({
+            role: m.role,
+            parts: [{ type: "text", text: m.content }],
+          })),
+          context,
+          style,
+        }),
+      });
+
+      if (!response.ok || !response.body) {
+        throw new Error("Failed to get response");
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let assistantMessage = "";
+
+      const assistantId = (Date.now() + 1).toString();
+      setMessages((prev) => [
+        ...prev,
+        { id: assistantId, role: "assistant", content: "" },
+      ]);
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        assistantMessage += chunk;
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantId ? { ...m, content: assistantMessage } : m
+          )
+        );
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now().toString(),
+          role: "assistant",
+          content: "❌ Error: Failed to get response. Check your API key.",
+        },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -68,24 +131,15 @@ export default function RizzGenerator() {
               <p className="text-xs">Enter a situation and ask for message suggestions!</p>
             </div>
           ) : (
-            messages.map((m: UIMessage) => (
+            messages.map((m) => (
               <div key={m.id} className="mb-4">
                 <div className={m.role === "user" ? "text-neon-cyan" : "text-neon-green"}>
                   <span className="font-bold">{m.role === "user" ? "> USER:" : "> AI:"}</span>
-                  <p className="ml-4 mt-1 whitespace-pre-wrap">
-                    {m.parts?.map((part) =>
-                      part.type === 'text' ? part.text : ''
-                    ).join('')}
-                  </p>
+                  <p className="ml-4 mt-1 whitespace-pre-wrap">{m.content}</p>
                 </div>
-                {m.role === "assistant" && m.parts && (
+                {m.role === "assistant" && m.content && !m.content.startsWith("❌") && (
                   <div className="ml-4 mt-2">
-                    <CopyButton
-                      text={m.parts.map((part) =>
-                        part.type === 'text' ? part.text : ''
-                      ).join('')}
-                      variant="cyan"
-                    />
+                    <CopyButton text={m.content} variant="cyan" />
                   </div>
                 )}
               </div>

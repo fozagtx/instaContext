@@ -27,7 +27,7 @@ export default function Analyzer() {
           messages: [
             {
               role: "user",
-              content: `Analyze this conversation:\n\n${conversation}`,
+              parts: [{ type: "text", text: `Analyze this conversation:\n\n${conversation}` }],
             },
           ],
           context: "conversation analysis",
@@ -46,16 +46,9 @@ export default function Analyzer() {
           const { done, value } = await reader.read();
           if (done) break;
 
-          const chunk = decoder.decode(value);
-          const lines = chunk.split("\n");
-
-          for (const line of lines) {
-            if (line.startsWith("0:")) {
-              const data = line.slice(2);
-              fullText += data;
-              setAnalysis(fullText);
-            }
-          }
+          const chunk = decoder.decode(value, { stream: true });
+          fullText += chunk;
+          setAnalysis(fullText);
         }
       }
 

@@ -39,7 +39,7 @@ export default function PickupLines() {
           messages: [
             {
               role: "user",
-              content: pickupLinePrompt(category),
+              parts: [{ type: "text", text: pickupLinePrompt(category) }],
             },
           ],
           context: `pickup line generation - ${category}`,
@@ -58,15 +58,8 @@ export default function PickupLines() {
           const { done, value } = await reader.read();
           if (done) break;
 
-          const chunk = decoder.decode(value);
-          const lines = chunk.split("\n");
-
-          for (const line of lines) {
-            if (line.startsWith("0:")) {
-              const data = line.slice(2);
-              fullText += data;
-            }
-          }
+          const chunk = decoder.decode(value, { stream: true });
+          fullText += chunk;
         }
       }
 
