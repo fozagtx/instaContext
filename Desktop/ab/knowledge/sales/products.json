@@ -1,0 +1,71 @@
+{
+  "products": [
+    {
+      "id": "pro-plan",
+      "name": "Pro Plan",
+      "description": "Advanced features for growing businesses",
+      "features": [
+        "Up to 100 team members",
+        "Advanced analytics",
+        "Priority customer support",
+        "Custom integrations",
+        "API access"
+      ],
+      "price": {
+        "monthly": 99,
+        "annually": 990
+      },
+      "category": "subscription"
+    },
+    {
+      "id": "enterprise-plan",
+      "name": "Enterprise Plan",
+      "description": "Full-scale solution for large organizations",
+      "features": [
+        "Unlimited team members",
+        "Advanced security features",
+        "24/7 dedicated support",
+        "Custom deployment options",
+        "SLA guarantee",
+        "Training and onboarding"
+      ],
+      "price": {
+        "monthly": 299,
+        "annually": 2990
+      },
+      "category": "subscription"
+    },
+    {
+      "id": "starter-plan",
+      "name": "Starter Plan",
+      "description": "Perfect for small teams getting started",
+      "features": [
+        "Up to 10 team members",
+        "Basic analytics",
+        "Email support",
+        "Standard integrations"
+      ],
+      "price": {
+        "monthly": 29,
+        "annually": 290
+      },
+      "category": "subscription"
+    }
+  ],
+  "addons": [
+    {
+      "id": "extra-storage",
+      "name": "Additional Storage",
+      "description": "Extra 100GB storage space",
+      "price": 10,
+      "category": "addon"
+    },
+    {
+      "id": "premium-support",
+      "name": "Premium Support",
+      "description": "Priority email and chat support",
+      "price": 25,
+      "category": "addon"
+    }
+  ]
+}

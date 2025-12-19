@@ -1,0 +1,61 @@
+{
+  "billing_policies": {
+    "payment_terms": {
+      "due_date": "Invoices are due within 30 days of issue date",
+      "late_fees": "2% monthly fee applied to overdue accounts",
+      "grace_period": "7-day grace period before late fees apply"
+    },
+    "accepted_payment_methods": [
+      "Credit cards (Visa, Mastercard, American Express)",
+      "Bank transfers (ACH)",
+      "PayPal",
+      "Wire transfers (Enterprise accounts only)"
+    ],
+    "billing_cycles": {
+      "monthly": "Billed on the same date each month",
+      "annually": "Billed yearly with 20% discount",
+      "quarterly": "Available for Enterprise plans only"
+    }
+  },
+  "refund_policy": {
+    "eligibility": {
+      "timeframe": "Refunds must be requested within 30 days of payment",
+      "conditions": [
+        "Service not used beyond trial period",
+        "Technical issues preventing service use",
+        "Billing errors or duplicate charges"
+      ]
+    },
+    "non_refundable": [
+      "Setup fees",
+      "Custom development work",
+      "Third-party service costs",
+      "Partial month usage"
+    ],
+    "process": {
+      "steps": [
+        "Submit refund request through support",
+        "Provide reason and supporting documentation",
+        "Refund processed within 5-10 business days",
+        "Refund issued to original payment method"
+      ]
+    },
+    "proration": "Downgrade refunds are prorated based on unused service time"
+  },
+  "cancellation_policy": {
+    "notice_period": "30 days written notice required",
+    "effective_date": "Cancellation takes effect at end of current billing period",
+    "data_retention": "Data is retained for 90 days after cancellation",
+    "reactivation": "Accounts can be reactivated within 90 days without data loss"
+  },
+  "dispute_resolution": {
+    "process": [
+      "Contact billing support within 60 days of charge",
+      "Provide detailed explanation of dispute",
+      "Our team investigates within 5 business days",
+      "Resolution communicated via email",
+      "Escalation to management if needed"
+    ],
+    "chargeback_policy": "Chargebacks may result in account suspension pending resolution"
+  }
+}

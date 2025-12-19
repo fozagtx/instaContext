@@ -1,0 +1,67 @@
+{
+  "getting_started": {
+    "setup_guide": {
+      "title": "Quick Setup Guide",
+      "steps": [
+        "Create your account at app.example.com",
+        "Verify your email address",
+        "Download the desktop/mobile app",
+        "Complete the onboarding tutorial",
+        "Invite your team members"
+      ],
+      "estimated_time": "10-15 minutes"
+    },
+    "first_steps": [
+      "Set up your workspace",
+      "Configure user roles and permissions",
+      "Import your existing data",
+      "Customize your dashboard",
+      "Set up integrations"
+    ]
+  },
+  "common_features": {
+    "user_management": {
+      "description": "Add, remove, and manage team member access",
+      "location": "Settings > Team Management",
+      "permissions": ["Admin", "Manager", "Member", "Viewer"]
+    },
+    "integrations": {
+      "supported": [
+        "Slack",
+        "Microsoft Teams",
+        "Google Workspace",
+        "Zapier",
+        "Webhooks",
+        "REST API"
+      ],
+      "setup_guide": "Settings > Integrations > Choose your service > Follow setup wizard"
+    },
+    "data_export": {
+      "formats": ["CSV", "Excel", "JSON", "PDF"],
+      "location": "Data > Export",
+      "schedule": "Can be automated daily, weekly, or monthly"
+    }
+  },
+  "api_documentation": {
+    "base_url": "https://api.example.com/v1",
+    "authentication": "Bearer token required",
+    "rate_limits": "1000 requests per hour per API key",
+    "endpoints": {
+      "users": "/users",
+      "projects": "/projects",
+      "data": "/data"
+    }
+  },
+  "mobile_app": {
+    "download_links": {
+      "ios": "https://apps.apple.com/app/example",
+      "android": "https://play.google.com/store/apps/details?id=com.example"
+    },
+    "features": [
+      "View dashboards on the go",
+      "Receive push notifications",
+      "Basic data entry",
+      "Offline mode for viewing"
+    ]
+  }
+}

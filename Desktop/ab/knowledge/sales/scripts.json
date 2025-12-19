@@ -1,0 +1,45 @@
+{
+  "sales_scripts": {
+    "greeting": {
+      "message": "Hi! I'm here to help you find the perfect solution for your needs. What brings you here today?",
+      "follow_up": "Could you tell me a bit about your team size and current challenges?"
+    },
+    "discovery_questions": [
+      "How many team members would be using this solution?",
+      "What's your biggest challenge with your current setup?",
+      "What's your budget range for this type of solution?",
+      "When are you looking to implement a new solution?",
+      "What features are most important to your team?"
+    ],
+    "objection_handling": {
+      "price_too_high": {
+        "response": "I understand budget is important. Let's look at the ROI - our customers typically see a 40% increase in productivity, which pays for itself in the first 3 months. Would you like to see a cost-benefit analysis?",
+        "alternatives": [
+          "Consider our Starter Plan which offers great value",
+          "Annual billing provides 20% savings",
+          "We offer a 14-day free trial to prove value first"
+        ]
+      },
+      "need_to_think": {
+        "response": "Absolutely, this is an important decision. What specific concerns or questions can I help address to make your evaluation easier?",
+        "follow_up": "Would it help if I set up a demo with your team next week?"
+      },
+      "feature_concerns": {
+        "response": "Let me understand which features are most critical for your use case. Our platform is quite flexible and we can show you exactly how it would work for your specific needs.",
+        "action": "Schedule a customized demo"
+      }
+    },
+    "closing": {
+      "trial": "Would you like to start with our 14-day free trial? I can set that up for you right now with full access to all features.",
+      "demo": "I'd love to show you a live demo tailored to your specific use case. When would be a good time for your team?",
+      "upgrade": "Based on what you've told me, I think the [PLAN_NAME] would be perfect. Would you like to upgrade today and get started?"
+    }
+  },
+  "competitive_advantages": [
+    "30% faster implementation than competitors",
+    "Industry-leading 99.9% uptime SLA",
+    "24/7 customer support (Enterprise plan)",
+    "No setup fees or hidden costs",
+    "Seamless migration assistance included"
+  ]
+}

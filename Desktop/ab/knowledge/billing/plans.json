@@ -1,0 +1,92 @@
+{
+  "subscription_plans": {
+    "starter": {
+      "name": "Starter Plan",
+      "price": {
+        "monthly": 29,
+        "annually": 290
+      },
+      "billing_features": {
+        "billing_cycle": "Monthly or Annual",
+        "invoice_delivery": "Email",
+        "payment_methods": ["Credit Card", "PayPal"],
+        "support": "Email support"
+      },
+      "usage_limits": {
+        "users": 10,
+        "storage": "10GB",
+        "api_calls": "1,000/month"
+      }
+    },
+    "pro": {
+      "name": "Pro Plan",
+      "price": {
+        "monthly": 99,
+        "annually": 990
+      },
+      "billing_features": {
+        "billing_cycle": "Monthly or Annual",
+        "invoice_delivery": "Email + PDF",
+        "payment_methods": ["Credit Card", "PayPal", "ACH"],
+        "support": "Priority email + chat support"
+      },
+      "usage_limits": {
+        "users": 100,
+        "storage": "100GB",
+        "api_calls": "10,000/month"
+      }
+    },
+    "enterprise": {
+      "name": "Enterprise Plan",
+      "price": {
+        "monthly": 299,
+        "annually": 2990
+      },
+      "billing_features": {
+        "billing_cycle": "Monthly, Quarterly, or Annual",
+        "invoice_delivery": "Email + PDF + Mailed copy",
+        "payment_methods": ["Credit Card", "ACH", "Wire Transfer", "Purchase Orders"],
+        "support": "24/7 phone + dedicated account manager"
+      },
+      "usage_limits": {
+        "users": "Unlimited",
+        "storage": "1TB",
+        "api_calls": "Unlimited"
+      },
+      "enterprise_features": [
+        "Custom billing terms available",
+        "Net 30/60/90 payment terms",
+        "Volume discounts for 100+ licenses",
+        "Custom invoicing and PO processing"
+      ]
+    }
+  },
+  "add_ons": {
+    "extra_storage": {
+      "name": "Additional Storage",
+      "price_per_gb": 0.10,
+      "minimum": "10GB blocks",
+      "billing": "Prorated monthly"
+    },
+    "premium_support": {
+      "name": "Premium Support",
+      "price": 25,
+      "features": [
+        "Priority queue",
+        "Phone support",
+        "1-hour response time SLA"
+      ]
+    },
+    "api_overages": {
+      "name": "Additional API Calls",
+      "price_per_1k": 2,
+      "automatic": "Automatically added when limits exceeded"
+    }
+  },
+  "discounts": {
+    "annual_discount": "20% off when paying annually",
+    "non_profit": "25% discount for registered non-profits",
+    "education": "30% discount for educational institutions",
+    "volume": "Contact sales for 100+ user discounts"
+  }
+}

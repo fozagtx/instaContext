@@ -1,0 +1,34 @@
+{
+  "name": "ai-customer-support-motia",
+  "version": "1.0.0",
+  "description": "AI-powered multi-agent customer support system built on Motia framework",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "motia dev",
+    "build": "motia build",
+    "start": "motia start",
+    "emit": "motia emit",
+    "demo": "node demo.js",
+    "test": "node demo.js"
+  },
+  "keywords": [
+    "motia",
+    "ai",
+    "customer-support",
+    "multi-agent",
+    "openai",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "motia": "^1.0.0",
+    "openai": "^4.80.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

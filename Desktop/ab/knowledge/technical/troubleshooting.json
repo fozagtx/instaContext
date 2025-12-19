@@ -1,0 +1,74 @@
+{
+  "common_issues": {
+    "login_problems": {
+      "symptoms": ["Can't log in", "Password not working", "Account locked"],
+      "solutions": [
+        "Check if Caps Lock is on",
+        "Try resetting your password using 'Forgot Password'",
+        "Clear browser cookies and cache",
+        "Try using an incognito/private browser window",
+        "Check if your account was temporarily locked (wait 30 minutes)"
+      ],
+      "escalation": "If none of these work, we can unlock your account manually"
+    },
+    "slow_performance": {
+      "symptoms": ["App loading slowly", "Timeouts", "Laggy interface"],
+      "solutions": [
+        "Check your internet connection speed",
+        "Close other browser tabs/applications",
+        "Try using Chrome or Firefox (recommended browsers)",
+        "Clear browser cache and cookies",
+        "Disable browser extensions temporarily",
+        "Check if you're on a VPN (can cause slowdowns)"
+      ],
+      "escalation": "If performance issues persist, we can check our server status"
+    },
+    "data_sync_issues": {
+      "symptoms": ["Data not updating", "Changes not saving", "Sync errors"],
+      "solutions": [
+        "Refresh the page (F5 or Cmd+R)",
+        "Log out and log back in",
+        "Check your internet connection",
+        "Wait 5 minutes for automatic sync",
+        "Try using a different browser"
+      ],
+      "escalation": "Data sync issues may require our technical team to investigate"
+    },
+    "integration_failures": {
+      "symptoms": ["Integration stopped working", "Connection errors", "Data not flowing"],
+      "solutions": [
+        "Check if the integrated service is down",
+        "Verify your integration credentials haven't expired",
+        "Re-authorize the integration in Settings",
+        "Check rate limits on the integrated service",
+        "Test with a simple integration first"
+      ],
+      "escalation": "Complex integration issues may need our developers to investigate"
+    }
+  },
+  "browser_requirements": {
+    "supported": [
+      "Chrome 90+",
+      "Firefox 88+",
+      "Safari 14+",
+      "Edge 90+"
+    ],
+    "not_supported": [
+      "Internet Explorer",
+      "Chrome versions older than 85",
+      "Mobile browsers (limited functionality)"
+    ]
+  },
+  "system_requirements": {
+    "minimum": {
+      "ram": "4GB",
+      "internet": "5 Mbps",
+      "screen_resolution": "1024x768"
+    },
+    "recommended": {
+      "ram": "8GB",
+      "internet": "25 Mbps",
+      "screen_resolution": "1920x1080"
+    }
+  }
+}
