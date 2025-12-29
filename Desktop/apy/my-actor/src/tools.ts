@@ -117,7 +117,7 @@ export const instagramScraperTool: Tool<
             };
 
         } catch (error) {
-            log.error(`Error extracting content strategy for @${handle}:`, String(error));
+            log.error(`Error extracting content strategy for @${handle}: ${String(error)}`);
             throw new Error(`Failed to extract content strategy: ${String(error)}`);
         }
     },
