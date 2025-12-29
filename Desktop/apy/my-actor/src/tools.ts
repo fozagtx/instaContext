@@ -57,31 +57,68 @@ export const instagramScraperTool: Tool<
 
             log.info(`Retrieved ${posts.length} posts for content strategy analysis`);
 
-            // Return raw posts data for AI agent to analyze and extract strategy
-            // The AI agent will process this data and extract the strategic framework
+            // Return a basic strategy analysis framework
+            // Note: The AI agent will enhance this with detailed strategic analysis
             return {
                 contentStrategy: {
-                    rawPostsData: posts,
-                    analysisInstructions: {
-                        username: handle,
-                        postsCount: posts.length,
-                        analysisType: "content_strategy_extraction",
-                        extractionGoals: [
-                            "content_pillars_and_themes",
-                            "posting_patterns_and_frequency",
-                            "engagement_tactics",
-                            "hashtag_strategies",
-                            "voice_and_tone_analysis",
-                            "content_pipeline_framework",
-                            "replication_blueprint"
-                        ]
-                    }
+                    username: handle,
+                    strategy: {
+                        contentPillars: [],
+                        postingPattern: {
+                            frequency: "To be analyzed",
+                            bestTimes: [],
+                            dayOfWeekPattern: {}
+                        },
+                        contentFormats: {
+                            carousel_posts: 0,
+                            single_images: 0,
+                            videos: 0,
+                            text_heavy: 0
+                        },
+                        engagementTactics: [],
+                        hashtagStrategy: {
+                            brandHashtags: [],
+                            industryHashtags: [],
+                            communityHashtags: [],
+                            avgHashtagsPerPost: 0
+                        },
+                        voiceAndTone: {
+                            personality: [],
+                            languagePatterns: [],
+                            emojiUsage: "To be analyzed"
+                        }
+                    },
+                    pipeline: {
+                        ideationSources: [],
+                        contentTypes: [],
+                        weeklySchedule: {},
+                        communityManagement: {
+                            responsePattern: "To be analyzed",
+                            engagementInitiators: [],
+                            communityBuilding: []
+                        },
+                        growthMechanisms: [],
+                        kpis: [],
+                        benchmarks: {},
+                        implementationGuide: {
+                            quickWins: [],
+                            monthlyGoals: [],
+                            requiredResources: []
+                        }
+                    },
+                    competitiveAdvantages: [],
+                    replicationBlueprint: {
+                        phase1_foundation: [`Raw data collected: ${posts.length} posts from @${handle}`],
+                        phase2_content: ["Strategic analysis to be performed by AI agent"],
+                        phase3_growth: ["Implementation framework to be generated"]
+                    },
+                    analyzedAt: new Date().toISOString()
                 }
             };
 
         } catch (error) {
-            log.error(`Error extracting content strategy for @${handle}:`, error);
-            throw new Error(`Failed to extract content strategy: ${error}`);
+            log.error(`Error extracting content strategy for @${handle}:`, String(error));
+            throw new Error(`Failed to extract content strategy: ${String(error)}`);
         }
     },
 });
